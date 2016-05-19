@@ -68,6 +68,11 @@
     </Compile>
     <Compile Include="Classes\Documento.cs" />
     <Compile Include="Classes\Persona.cs" />
+    <Compile Include="DB_DemoSerializacionDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_DemoSerializacionDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -91,6 +96,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="DB_DemoSerializacionDataSet.xsc">
+      <DependentUpon>DB_DemoSerializacionDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DB_DemoSerializacionDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_DemoSerializacionDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_DemoSerializacionDataSet.xss">
+      <DependentUpon>DB_DemoSerializacionDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

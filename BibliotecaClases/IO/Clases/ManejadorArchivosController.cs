@@ -139,9 +139,16 @@ namespace BibliotecaClases.IO
             }
         }
 
-        
-        
+
+
         public string SerializaXml<T>(T entidad) where T : class
+        {
+            var ser = new XmlSerializer(typeof(T));
+            var ms = new MemoryStream();
+            ser.Serialize(ms, entidad);
+            return System.Text.Encoding.UTF8.GetString(ms.ToArray());
+        }
+        public string DesSerializaXml<T>(T entidad) where T : class
         {
             var ser = new XmlSerializer(typeof(T));
             var ms = new MemoryStream();
