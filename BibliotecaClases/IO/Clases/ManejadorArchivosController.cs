@@ -7,18 +7,25 @@ using System.IO;
 using System.IO.Compression;
 using System.IO.IsolatedStorage;
 using System.Security.Permissions;
+using System.Xml.Serialization;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization.Formatters.Soap;
+using System.Runtime.Serialization.Json;
 
 namespace BibliotecaClases.IO
 {
     public class ManejadorArchivosController : IStreams
     {
-        
+
         /// <summary>
         /// Lee el contenido de un archivo de texto
         /// </summary>
+        /// <typeparam name="T">StreamReader</typeparam>
         /// <param name="ruta">Ruta física del archivo</param>
         /// <returns></returns>
-        public string Leer(string ruta)
+        public string Leer<T>(String ruta) where T : TextReader
         {
             string Lectura = "";
             if (File.Exists(ruta))
@@ -134,6 +141,41 @@ namespace BibliotecaClases.IO
 
                 return true;
             }
+        }
+
+        
+        
+        public string SerializaXml<T>(T entidad) where T : class
+        {
+            var ser = new XmlSerializer(typeof(T));
+            var ms = new MemoryStream();
+            ser.Serialize(ms, entidad);
+            return System.Text.Encoding.UTF8.GetString(ms.ToArray());
+        }
+
+        public string SerializaSoap<T>(T entidad) where T : class
+        {
+            SoapFormatter f = new SoapFormatter();
+            var ms = new MemoryStream();
+            f.Serialize(ms, entidad);
+            return System.Text.Encoding.UTF8.GetString(ms.ToArray());
+        }
+
+        public string SerializaBinary<T>(T entidad) where T : class
+        {
+            BinaryFormatter f = new BinaryFormatter();
+            var ms = new MemoryStream();
+            f.Serialize(ms, entidad);
+            return System.Text.Encoding.UTF8.GetString(ms.ToArray());
+
+        }
+
+        public string SerializaJson<T>(T entidad) where T : class
+        {
+            var f = new DataContractJsonSerializer(typeof(T));
+            var ms = new MemoryStream();
+            f.WriteObject(ms, entidad);
+            return System.Text.Encoding.UTF8.GetString(ms.ToArray());
         }
 
 
