@@ -4,16 +4,28 @@
 winexe
 C#
 .cs
+<<<<<<< d9b7e94a90a46553fbf4c90337bef72f70904c79
 C:\projects\dae\PRACTICA_MANEJOARCHIVOS\obj\Debug\
+=======
+C:\Users\gonza\Desktop\dae\PRACTICA_MANEJOARCHIVOS\obj\Debug\
+>>>>>>> cambios
 PRACTICA_MANEJOARCHIVOS
 none
 false
 DEBUG;TRACE
+<<<<<<< d9b7e94a90a46553fbf4c90337bef72f70904c79
 C:\projects\dae\PRACTICA_MANEJOARCHIVOS\App.xaml
 11151548125
 
 81470508362
 181573493103
+=======
+C:\Users\gonza\Desktop\dae\PRACTICA_MANEJOARCHIVOS\App.xaml
+11151548125
+
+71176790177
+18-472357022
+>>>>>>> cambios
 MainWindow.xaml;
 
 False
